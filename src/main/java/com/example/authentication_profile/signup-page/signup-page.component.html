@@ -1,0 +1,26 @@
+<div class="signUpContainer">
+  <div class="signup-box">
+    <h2>Regístrate</h2>
+    <form (ngSubmit)="onSubmit()" #signupForm="ngForm">
+      <div class="input-group">
+        <input class="input" type="text" [(ngModel)]="name" name="name" placeholder="Tu nombre" required />
+      </div>
+      <div class="input-group">
+        <input class="input" type="email" [(ngModel)]="email" name="email" placeholder="Tu correo" required />
+      </div>
+      <div class="input-group">
+        <input class="input" type="password" [(ngModel)]="password" name="password" placeholder="Tu contraseña" required />
+      </div>
+
+      <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+      <div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
+
+      <div>
+        <button type="submit" class="btn" [disabled]="!signupForm.form.valid">Registrarse</button>
+      </div>
+    </form>
+    <p class="login-link">¿Ya tienes una cuenta?
+      <a routerLink="/login" routerLinkActive="active" class="a">Iniciar sesión</a>
+    </p>
+  </div>
+</div>
